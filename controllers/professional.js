@@ -6,7 +6,7 @@ const getData = async (req, res, next) => {
     const startTimeMs = Date.now();
     const dbClient = mongodb.getDb();
     const dbName = mongodb.getDbName ? mongodb.getDbName() : 'byuIdahoDb';
-    const collectionName = mongodb.getUserCollection ? mongodb.getUserCollection() : 'user';
+    const collectionName = mongodb.getUserCollection ? mongodb.getCollectionProfessional() : 'professional';
     const db = dbClient.db(dbName);
     console.log(`Connected to DB "${dbName}", querying collection "${collectionName}" ...`);
     const cursor = db.collection(collectionName).find();

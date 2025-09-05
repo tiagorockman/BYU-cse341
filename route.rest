@@ -1,0 +1,8 @@
+//LOCALHOST
+
+### GET USER by id
+GET http://localhost:8080/users/68ba1a13f799595cd6ae8264
+
+
+### GET USERS
+GET http://localhost:8080/users

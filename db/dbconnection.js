@@ -4,7 +4,6 @@ const MongoClient = require('mongodb').MongoClient;
 
 let _client;
 const _dbName = process.env.MONGO_DB;
-const _userCollection = process.env.MONGO_COLLECTION_USER;
 
 const initDb = (callback) => {
   if (_client) {
@@ -59,14 +58,13 @@ const getDb = () => {
 };
 
 const getDbName = () => _dbName;
-
-const getUserCollection = () => {
-    return _userCollection;
-}
+const getCollectionUser = () => process.env.MONGO_COLLECTION_USER;
+const getCollectionProfessional = () => process.env.MONGO_COLLECTION_PROFESSIONAL;
 
 module.exports = {
   initDb,
   getDb,
   getDbName,
-  getUserCollection,
+  getCollectionUser,
+  getCollectionProfessional
 };
