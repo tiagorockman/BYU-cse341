@@ -2,6 +2,11 @@ const { ObjectId } = require('mongodb');
 const mongodb = require('../db/connect');
 
 const getAll = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Users']
+      #swagger.summary = 'Get all users'
+      #swagger.description = 'Retrieve a list of all users'
+  */
   try {
     console.log('Handling GET /users');
     const startTimeMs = Date.now();
@@ -24,6 +29,11 @@ const getAll = async (req, res, next) => {
 };
 
 const getSingleUser = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Users']
+      #swagger.summary = 'Retrieve a specific user by their ID'
+      #swagger.description = 'Retrieve a specific user by their ID'
+  */
     const userId = new ObjectId(req.params.id); 
     const dbClient = mongodb.getDb();
     const dbName = mongodb.getDbName();

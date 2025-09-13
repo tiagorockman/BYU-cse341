@@ -3,6 +3,11 @@ const mongodb = require('../db/connect');
 
 // GET all contacts
 const getAll = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Contacts']
+      #swagger.summary = 'Get all contacts'
+      #swagger.description = 'Retrieve a list of all contacts'
+  */
   try {
     console.log('Handling GET /contacts');
     const startTimeMs = Date.now();
@@ -24,8 +29,13 @@ const getAll = async (req, res, next) => {
   }
 };
 
-
+// GET contact by ID
 const getContactById = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Contacts']
+      #swagger.summary = 'Get a contact by ID'
+      #swagger.description = 'Retrieve a specific contact by their ID'
+  */
   try {
     const contactId = new ObjectId(req.params.id); 
     const dbClient = mongodb.getDb();
@@ -49,6 +59,11 @@ const getContactById = async (req, res, next) => {
 
 // POST create new contact
 const createContact = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Contacts']
+      #swagger.summary = 'Create a new contact'
+      #swagger.description = 'Create a new contact with all required fields'
+  */
   try {
     console.log('Handling POST /contacts');
     const { firstName, lastName, email, favoriteColor, birthday } = req.body;
@@ -76,7 +91,7 @@ const createContact = async (req, res, next) => {
     const result = await db.collection(collectionName).insertOne(contact);
     
     if (result.acknowledged) {
-      res.status(201).json({ id: result.insertedId });
+      res.status(201).json({ id: result.insertedId }); // created
     } else {
       res.status(500).json({ error: 'Failed to create contact' });
     }
@@ -88,6 +103,11 @@ const createContact = async (req, res, next) => {
 
 // PUT update contact
 const updateContact = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Contacts']
+      #swagger.summary = 'Update a contact'
+      #swagger.description = 'Update an existing contact by ID'
+  */
   try {
     console.log('Handling PUT /contacts/:id');
     const contactId = new ObjectId(req.params.id);
@@ -135,6 +155,11 @@ const updateContact = async (req, res, next) => {
 
 // DELETE contact
 const deleteContact = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Contacts']
+      #swagger.summary = 'Delete a contact'
+      #swagger.description = 'Delete a contact by ID'
+  */
   try {
     console.log('Handling DELETE /contacts/:id');
     const contactId = new ObjectId(req.params.id);

@@ -1,6 +1,11 @@
 const mongodb = require('../db/connect');
 
 const getData = async (req, res, next) => {
+  /*
+      #swagger.tags = ['Professionals']
+      #swagger.summary = 'Get professional data'
+      #swagger.description = 'Retrieve professional information'
+  */
   try {
     console.log('Handling GET /professional');
     const startTimeMs = Date.now();

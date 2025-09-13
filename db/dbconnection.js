@@ -58,9 +58,9 @@ const getDb = () => {
 };
 
 const getDbName = () => _dbName;
-const getCollectionUser = () => process.env.MONGO_COLLECTION_USER;
-const getCollectionProfessional = () => process.env.MONGO_COLLECTION_PROFESSIONAL;
-const getCollectionContacts = () => process.env.MONGO_COLLECTION_CONTACTS;
+const getCollectionUser = () => process.env.MONGO_COLLECTION_USER || 'users';
+const getCollectionProfessional = () => process.env.MONGO_COLLECTION_PROFESSIONAL || 'professional';
+const getCollectionContacts = () => process.env.MONGO_COLLECTION_CONTACTS || 'contacts';
 
 module.exports = {
   initDb,

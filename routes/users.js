@@ -6,6 +6,7 @@ const router = express.Router();
 
 
 router.get('/', usersController.getAll);
+
 router.get('/:id', usersController.getSingleUser);
 
 module.exports = router;

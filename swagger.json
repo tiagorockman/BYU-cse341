@@ -22,12 +22,85 @@
     }
   ],
   "schemes": [
+    "https",
     "http"
   ],
   "paths": {
-    "/": {
+    "/professional/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Professionals"
+        ],
+        "summary": "Get professional data",
+        "description": "Retrieve professional information",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users",
+        "description": "Retrieve a list of all users",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Retrieve a specific user by their ID",
+        "description": "Retrieve a specific user by their ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/contacts/": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get all contacts",
+        "description": "Retrieve a list of all contacts",
         "produces": [
           "application/json"
         ],
@@ -41,7 +114,11 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Create a new contact",
+        "description": "Create a new contact with all required fields",
         "parameters": [
           {
             "name": "body",
@@ -81,9 +158,13 @@
         }
       }
     },
-    "/{id}": {
+    "/contacts/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get a contact by ID",
+        "description": "Retrieve a specific contact by their ID",
         "produces": [
           "application/json"
         ],
@@ -99,9 +180,6 @@
           "200": {
             "description": "OK"
           },
-          "204": {
-            "description": "No Content"
-          },
           "404": {
             "description": "Not Found"
           },
@@ -111,7 +189,11 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Update a contact",
+        "description": "Update an existing contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -160,7 +242,11 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Delete a contact",
+        "description": "Delete a contact by ID",
         "parameters": [
           {
             "name": "id",

@@ -6,7 +6,6 @@ const professionalRoutes = require('./routes/professional');
 const usersRoutes = require('./routes/users');
 const contactsRoutes = require('./routes/contacts');
 /*swagger*/
-const swaggerAutogen = require('swagger-autogen');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
@@ -18,14 +17,14 @@ app
   .use(bodyParser.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 
+      'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+    );
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
   })
-  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-  .use('/professional', professionalRoutes)
-  .use('/users', usersRoutes)
-  .use('/contacts', contactsRoutes);
-
-
+ .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+ .use('/', require('./routes'));
 
 
 mongodb.initDb((err, mongodb) => {
