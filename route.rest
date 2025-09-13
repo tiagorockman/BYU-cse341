@@ -6,3 +6,53 @@ GET http://localhost:8080/users/68ba1a13f799595cd6ae8264
 
 ### GET USERS
 GET http://localhost:8080/users
+
+### CONTACTS ROUTES
+
+### GET ALL CONTACTS
+GET http://localhost:8080/contacts
+
+### GET CONTACT by id (replace with actual contact ID)
+GET http://localhost:8080/contacts/507f1f77bcf86cd799439011
+
+### CREATE NEW CONTACT
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1990-01-15"
+}
+
+### UPDATE CONTACT (replace with actual contact ID)
+PUT http://localhost:8080/contacts/507f1f77bcf86cd799439011
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "favoriteColor": "green",
+  "birthday": "1985-05-20"
+}
+
+### DELETE CONTACT (replace with actual contact ID)
+DELETE http://localhost:8080/contacts/507f1f77bcf86cd799439011
+
+### TEST VALIDATION - Missing required fields
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe"
+}
+
+### TEST VALIDATION - Empty body
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{}

@@ -60,11 +60,13 @@ const getDb = () => {
 const getDbName = () => _dbName;
 const getCollectionUser = () => process.env.MONGO_COLLECTION_USER;
 const getCollectionProfessional = () => process.env.MONGO_COLLECTION_PROFESSIONAL;
+const getCollectionContacts = () => process.env.MONGO_COLLECTION_CONTACTS;
 
 module.exports = {
   initDb,
   getDb,
   getDbName,
   getCollectionUser,
-  getCollectionProfessional
+  getCollectionProfessional,
+  getCollectionContacts
 };
