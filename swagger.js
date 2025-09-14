@@ -6,7 +6,7 @@ const doc = {
     description: 'API for managing users, professionals, and contacts',
     version: '1.0.0',
   },
-  host: 'localhost:8080',
+  host: 'cse341-3x6t.onrender.com',
   basePath: "/",
   schemes: ["https", "http"],
   tags: [
