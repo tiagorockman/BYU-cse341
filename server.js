@@ -5,6 +5,7 @@ const mongodb = require('./db/connect');
 const professionalRoutes = require('./routes/professional');
 const usersRoutes = require('./routes/users');
 const contactsRoutes = require('./routes/contacts');
+const cors = require('cors');
 /*swagger*/
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -12,6 +13,8 @@ const swaggerDocument = require('./swagger.json');
 const port = process.env.PORT || 8080;
 const app = express();
 
+app.use(cors({ origin: true, credentials: true }));
+app.options('*', cors());
 
 app
   .use(bodyParser.json())
