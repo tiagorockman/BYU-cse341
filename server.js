@@ -13,7 +13,7 @@ const swaggerDocument = require('./swagger.json');
 const port = process.env.PORT || 8080;
 const app = express();
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: true, credentials: false }));
 app.options('*', cors());
 
 app
