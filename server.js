@@ -13,8 +13,7 @@ const swaggerDocument = require('./swagger.json');
 const port = process.env.PORT || 8080;
 const app = express();
 
-app.use(cors({ origin: true, credentials: false }));
-app.options('*', cors());
+app.use(cors({ origin: 'https://cse341-3x6t.onrender.com', credentials: true }));
 
 app
   .use(bodyParser.json())
